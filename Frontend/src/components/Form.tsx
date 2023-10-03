@@ -22,7 +22,7 @@ type FormProp = {
 };
 const Form = ({ info, handleChange, onSubmit, loading, type,errors }: FormProp) => {
   return (
-    <form className="flex flex-col gap-4" onSubmit={onSubmit}>
+    <form className="flex flex-col gap-2" onSubmit={onSubmit}>
       <Input
         placeholder="Name"
         value={info?.name}

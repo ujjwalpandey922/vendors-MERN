@@ -111,10 +111,10 @@ const Home = () => {
     fetchData();
   }, []);
   return (
-    <div className="flex min-h-screen flex-col items-center justify-between p-4">
+    <div className="flex min-h-screen flex-col items-center justify-between p-10">
       <div className="flex gap-4 bg-slate-100 min-h-[30rem] p-4 rounded-tr-3xl rounded-bl-3xl relative flex-1">
-        <div className="flex flex-col px-6 gap-2">
-          <div className="flex justify-center">
+        <div className="flex flex-col px-6 gap-1">
+          <div className="flex justify-center ">
             <img
               alt="log"
               src={"/logo.jpg"}
