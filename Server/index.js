@@ -24,9 +24,9 @@ const connect = async () => {
   }
 };
 //check if everything is working fine
-app.use("/", (req, res) => {
-  res.send("eeee");
-});
+// app.use("/", (req, res) => {
+//   res.send("eeee");
+// });
 
 //--------------ROUTES------------------
 // app.use("/api/add",routeName)// or directly use post as the app is small
