@@ -6,7 +6,7 @@ import Vendor from "./Models/Vendor.js"; // have to use js for files......
 const app = express();
 app.use(
   cors({
-    origin: "https://vendors-mern-frontend.vercel.app/",
+    origin: "https://vendors-mern-frontend.vercel.app",
     credentials:true,
     methods:["POST","GET","PUT","DELETE"]
   })
