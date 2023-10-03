@@ -13,8 +13,8 @@ env.config(); // connect to mongo db
 app.use(
   cors({
     origin: true,
-    // methods: ["POST", "GET", "PUT", "DELETE"],
-    // credentials: true,
+    methods: ["POST", "GET", "PUT", "DELETE"],
+    credentials: true,
   })
 ); //cors
 const connect = async () => {
