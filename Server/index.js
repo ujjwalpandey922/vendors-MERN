@@ -47,6 +47,12 @@ app.post("/api/add", async (req, res) => {
 });
 // ------------GET ALL INFOS----------
 app.get("/api/get", async (req, res) => {
+   res.header(
+     "Access-Control-Allow-Origin",
+     "https://vendors-mern-frontend.vercel.app"
+   );
+   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+   res.header("Access-Control-Allow-Headers", "Content-Type");
   try {
     const foundAllVendors = await Vendor.find();
     res.status(200).json(foundAllVendors);
