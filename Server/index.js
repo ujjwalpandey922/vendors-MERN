@@ -121,11 +121,11 @@ app.put("/api/update", async (req, res) => {
   }
 });
 //start server
-app.get("*", (req, res) => {
-  res.status(200).json({
-    message: "Euuuuu",
-  });
-});
+// app.get("*", (req, res) => {
+//   res.status(200).json({
+//     message: "Euuuuu",
+//   });
+// });
 
 app.listen(8000, () => {
   connect();
