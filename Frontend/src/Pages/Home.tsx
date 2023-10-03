@@ -65,7 +65,7 @@ const Home = () => {
     }
      setLoading(true);
     try {
-      const res = await fetch("http://localhost:8000/api/add", {
+      const res = await fetch("https://vendors-mern.vercel.app/api/add", {
         method: "POST", // Specify the request method
         headers: {
           "Content-Type": "application/json", // Specify the content type as JSON
@@ -75,7 +75,9 @@ const Home = () => {
       });
       const data = await res.json();
       if (data) {
-        const updatedRes = await fetch("http://localhost:8000/api/get");
+        const updatedRes = await fetch(
+          "https://vendors-mern.vercel.app/api/get"
+        );
         const updatedData = await updatedRes.json();
 
         // Update the state to reflect the changes
@@ -101,7 +103,7 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("http://localhost:8000/api/get");
+        const res = await fetch("https://vendors-mern.vercel.app/api/get");
         const data = await res.json();
         setVendorsList(data);
       } catch (error) {
