@@ -12,9 +12,9 @@ app.use(express.json()); // parse data into json
 env.config(); // connect to mongo db
 app.use(
   cors({
-    origin: "https://vendors-mern-frontend.vercel.app",
-    methods: ["POST", "GET", "PUT", "DELETE"],
-    credentials: true,
+    origin: true,
+    // methods: ["POST", "GET", "PUT", "DELETE"],
+    // credentials: true,
   })
 ); //cors
 const connect = async () => {
