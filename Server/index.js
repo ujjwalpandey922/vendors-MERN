@@ -5,9 +5,6 @@ import cors from "cors";
 import Vendor from "./Models/Vendor.js"; // have to use js for files......
 const app = express();
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-});
 app.use(express.json()); // parse data into json
 env.config(); // connect to mongo db
 app.use(
@@ -16,7 +13,10 @@ app.use(
     methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
   })
-); //cors
+  ); //cors
+  // app.use((req, res, next) => {
+  //   res.header("Access-Control-Allow-Origin", "*");
+  // });
 const connect = async () => {
   try {
     await mongoose.connect(process.env.MONGO);
