@@ -11,6 +11,9 @@ app.use(
     credentials:true,
   })
 ); //cors
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+}); 
 app.use(express.json()); // parse data into json
 env.config();
 // connect to mongo db
@@ -124,6 +127,7 @@ app.get("*", (req, res) => {
     message: "Euuuuu",
   });
 });
+
 app.listen(8000, () => {
   connect();
   console.log("Listening on PORT 8000");
