@@ -101,8 +101,11 @@ const Home = () => {
   };
   useEffect(() => {
     const fetchData = async () => {
+      const header = new Headers({ "Access-Control-Allow-Origin": "*" });
       try {
-        const res = await fetch("https://vendors-mern.vercel.app/api/get");
+        const res = await fetch("https://vendors-mern.vercel.app/api/get", {
+          headers: header,
+        });
         const data = await res.json();
         setVendorsList(data);
       } catch (error) {

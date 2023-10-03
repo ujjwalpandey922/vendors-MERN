@@ -6,7 +6,7 @@ import Vendor from "./Models/Vendor.js"; // have to use js for files......
 const app = express();
 app.use(
   cors({
-    origin: true,
+    origin: "*",
     methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
   })
