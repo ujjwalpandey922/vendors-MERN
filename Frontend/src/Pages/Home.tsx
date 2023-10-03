@@ -1,6 +1,5 @@
 "use client";
 import { ChangeEvent, useEffect, useState } from "react";
-// import { Link } from 'react-router-dom';
 import "../App.css";
 import Vendors from "../components/Vendors";
 import Form from "../components/Form";
