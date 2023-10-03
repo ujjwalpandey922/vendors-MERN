@@ -121,8 +121,10 @@ app.put("/api/update", async (req, res) => {
   }
 });
 //start server
-app.get("/luffy", (req, res) => {
-  res.send("YoooooooooooHOHOHO");
+app.get("/", (req, res) => {
+  res.status(200).json({
+    message: "Euuuuu",
+  });
 });
 
 app.listen(8000, () => {
