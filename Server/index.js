@@ -4,19 +4,19 @@ import mongoose from "mongoose";
 import cors from "cors";
 import Vendor from "./Models/Vendor.js"; // have to use js for files......
 const app = express();
-app.use(
-  cors({
-    origin: "*",
-    methods: ["POST", "GET", "PUT", "DELETE"],
-    credentials: true,
-  })
-); //cors
+
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
 });
 app.use(express.json()); // parse data into json
 env.config(); // connect to mongo db
-
+app.use(
+  cors({
+    origin: "https://vendors-mern-frontend.vercel.app",
+    methods: ["POST", "GET", "PUT", "DELETE"],
+    credentials: true,
+  })
+); //cors
 const connect = async () => {
   try {
     await mongoose.connect(process.env.MONGO);
