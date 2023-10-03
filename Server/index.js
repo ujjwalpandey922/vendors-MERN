@@ -13,6 +13,7 @@ app.use(
 ); //cors
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
+  next();
 }); 
 app.use(express.json()); // parse data into json
 env.config();
