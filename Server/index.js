@@ -4,19 +4,18 @@ import mongoose from "mongoose";
 import cors from "cors";
 import Vendor from "./Models/Vendor.js"; // have to use js for files......
 const app = express();
-// app.use(
-//   cors({
-//     origin: true,
-//     methods:["POST","GET","PUT","DELETE"],
-//     credentials:true,
-//   })
-// ); //cors
+app.use(
+  cors({
+    origin: true,
+    methods: ["POST", "GET", "PUT", "DELETE"],
+    credentials: true,
+  })
+); //cors
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
- 
-}); 
+});
 app.use(express.json()); // parse data into json
-env.config();// connect to mongo db
+env.config(); // connect to mongo db
 
 const connect = async () => {
   try {
@@ -43,7 +42,9 @@ app.post("/api/add", async (req, res) => {
       ...data,
     });
     await newEntry.save();
-    res.status(200).send({message:"Vendor Created Successfully",success:true});
+    res
+      .status(200)
+      .send({ message: "Vendor Created Successfully", success: true });
   } catch (error) {
     console.error(error);
     res.status(500).send("Internal Server Error in adding");
@@ -51,12 +52,9 @@ app.post("/api/add", async (req, res) => {
 });
 // ------------GET ALL INFOS----------
 app.get("/api/get", async (req, res) => {
-   res.header(
-     "Access-Control-Allow-Origin",
-     "https://vendors-mern-frontend.vercel.app"
-   );
-   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-   res.header("Access-Control-Allow-Headers", "Content-Type");
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
   try {
     const foundAllVendors = await Vendor.find();
     res.status(200).json(foundAllVendors);
@@ -84,12 +82,12 @@ app.delete("/api/delete", async (req, res) => {
 
     // Check if the vendor was found and deleted successfully
     if (deletedVendor) {
-      res.status(200).json({message:"Vendor Deleted Successfully",success:true});
+      res
+        .status(200)
+        .json({ message: "Vendor Deleted Successfully", success: true });
     } else {
       // If the vendor was not found
-      res
-        .status(404)
-        .json({ message: "Vendor Not Found", success: false });
+      res.status(404).json({ message: "Vendor Not Found", success: false });
     }
   } catch (error) {
     console.error(error);
