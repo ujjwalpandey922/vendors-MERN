@@ -6,9 +6,9 @@ import Vendor from "./Models/Vendor.js"; // have to use js for files......
 const app = express();
 app.use(
   cors({
-    origin: "https://vendors-mern-frontend.vercel.app/",
+    origin: "https://vendors-mern-frontend.vercel.app",
+    methods:["POST","GET","PUT","DELETE"],
     credentials:true,
-    methods:["POST","GET","PUT","DELETE"]
   })
 ); //cors
 app.use(express.json()); // parse data into json
@@ -24,9 +24,9 @@ const connect = async () => {
   }
 };
 //check if everything is working fine
-// app.use("/", (req, res) => {
-//   res.send("eeee");
-// });
+app.use("/", (req, res) => {
+  res.send("eeee");
+});
 
 //--------------ROUTES------------------
 // app.use("/api/add",routeName)// or directly use post as the app is small
