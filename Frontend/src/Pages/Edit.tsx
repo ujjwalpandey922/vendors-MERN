@@ -27,7 +27,9 @@ const Edit = () => {
   useEffect(() => {
     const fetchSingleData = async () => {
       try {
-        const res = await fetch(`https://vendors-mern.vercel.app/api/${id}`);
+        const res = await fetch(
+          `https://vendor-backend-tc15.onrender.com/api/${id}`
+        );
         const data = await res.json();
         setSingleVendor({ ...data });
       } catch (error) {

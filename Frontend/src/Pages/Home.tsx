@@ -48,7 +48,6 @@ const Home = () => {
     return Object.keys(error).length === 0 ? null : error;
   };
   const onSubmit = async () => {
-   
     const anyError = validate();
     if (anyError) {
       setErrors((pre) => ({
@@ -62,20 +61,23 @@ const Home = () => {
     } else {
       setErrors({});
     }
-     setLoading(true);
+    setLoading(true);
     try {
-      const res = await fetch("https://vendors-mern.vercel.app/api/add", {
-        method: "POST", // Specify the request method
-        headers: {
-          "Content-Type": "application/json", // Specify the content type as JSON
-          // Add any other headers if needed
-        },
-        body: JSON.stringify({ info: info }),
-      });
+      const res = await fetch(
+        "https://vendor-backend-tc15.onrender.com/api/add",
+        {
+          method: "POST", // Specify the request method
+          headers: {
+            "Content-Type": "application/json", // Specify the content type as JSON
+            // Add any other headers if needed
+          },
+          body: JSON.stringify({ info: info }),
+        }
+      );
       const data = await res.json();
       if (data) {
         const updatedRes = await fetch(
-          "https://vendors-mern.vercel.app/api/get"
+          "https://vendor-backend-tc15.onrender.com/api/get"
         );
         const updatedData = await updatedRes.json();
 
@@ -102,7 +104,9 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch("https://vendors-mern.vercel.app/api/get");
+        const res = await fetch(
+          "https://vendor-backend-tc15.onrender.com/api/get"
+        );
         const data = await res.json();
         setVendorsList(data);
       } catch (error) {

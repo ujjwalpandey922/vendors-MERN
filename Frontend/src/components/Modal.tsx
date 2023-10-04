@@ -32,14 +32,17 @@ const Modal = ({ type, setShow, singleVendor, setSingleVendor }: Props) => {
     console.log("delete");
     console.log(JSON.stringify({ id: singleVendor?._id }));
     try {
-      const res = await fetch(`https://vendors-mern.vercel.app/api/delete`, {
-        method: "DELETE", // Specify the request method
-        headers: {
-          "Content-Type": "application/json", // Specify the content type as JSON
-          // Add any other headers if needed
-        },
-        body: JSON.stringify({ id: singleVendor?._id }),
-      });
+      const res = await fetch(
+        `https://vendor-backend-tc15.onrender.com/api/delete`,
+        {
+          method: "DELETE", // Specify the request method
+          headers: {
+            "Content-Type": "application/json", // Specify the content type as JSON
+            // Add any other headers if needed
+          },
+          body: JSON.stringify({ id: singleVendor?._id }),
+        }
+      );
       const data = await res.json();
       if (data) {
         navto("/");
@@ -93,14 +96,17 @@ const Modal = ({ type, setShow, singleVendor, setSingleVendor }: Props) => {
     }
     setLoading(true);
     try {
-      const res = await fetch("https://vendors-mern.vercel.app/api/update", {
-        method: "PUT", // Specify the request method
-        headers: {
-          "Content-Type": "application/json", // Specify the content type as JSON
-          // Add any other headers if needed
-        },
-        body: JSON.stringify({ updatedInfo: info }),
-      });
+      const res = await fetch(
+        "https://vendor-backend-tc15.onrender.com/api/update",
+        {
+          method: "PUT", // Specify the request method
+          headers: {
+            "Content-Type": "application/json", // Specify the content type as JSON
+            // Add any other headers if needed
+          },
+          body: JSON.stringify({ updatedInfo: info }),
+        }
+      );
       const data = await res.json();
       if (data) {
         setSingleVendor?.(data);
