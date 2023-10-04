@@ -9,11 +9,11 @@ app.use(express.json()); // parse data into json
 env.config(); // connect to mongo db
 app.use(
   cors({
-    origin: true,
+    origin: ["https://vendors-mern-frontend.vercel.app"],
     methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
   })
-  ); //cors
+); //cors
   // app.use((req, res, next) => {
   //   res.header("Access-Control-Allow-Origin", "*");
   // });
