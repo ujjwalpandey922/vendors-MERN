@@ -9,7 +9,10 @@ app.use(express.json()); // parse data into json
 env.config(); // connect to mongo db
 app.use(
   cors({
-    origin: ["https://vendors-mern-frontend.vercel.app"],
+    origin: [
+      "https://vendors-mern-frontend.vercel.app",
+      "https://harmonious-puppy-dbe747.netlify.app",
+    ],
     methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
   })
@@ -36,6 +39,9 @@ const connect = async () => {
 //steps Connect to DB THen Create a model then add it to the db
 // ---------ADD----------------
 app.post("/api/add", async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
   const data = req.body.info;
   try {
     const newEntry = Vendor({
@@ -65,6 +71,9 @@ app.get("/api/get", async (req, res) => {
 });
 // ------------GET One INFO----------
 app.get("/api/:id", async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.header("Access-Control-Allow-Headers", "Content-Type");
   try {
     const foundOneVendor = await Vendor.findById(req.params.id);
     res.status(200).json(foundOneVendor);
@@ -75,6 +84,9 @@ app.get("/api/:id", async (req, res) => {
 });
 // ------------Delete Vendors----------
 app.delete("/api/delete", async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.header("Access-Control-Allow-Headers", "Content-Type");
   const VendorId = req.body.id;
   try {
     // Use findByIdAndDelete to delete the vendor by ID
@@ -96,6 +108,9 @@ app.delete("/api/delete", async (req, res) => {
 });
 // ------------Update Vendors----------
 app.put("/api/update", async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.header("Access-Control-Allow-Headers", "Content-Type");
   const VendorNewInfo = req.body.updatedInfo;
   const { id, ...restInfo } = VendorNewInfo;
   try {
